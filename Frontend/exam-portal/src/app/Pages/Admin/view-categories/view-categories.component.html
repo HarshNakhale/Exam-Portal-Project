@@ -1,0 +1,20 @@
+<mat-card>
+    <mat-list>
+        <div mat-subheader style="font-size: x-large;font-weight: 500;">ALL CATEGORIES</div>
+        <mat-list-item style="padding: 40px 0px;" *ngFor="let cat of categories">
+            <mat-icon matListItemIcon>format_list_bulleted</mat-icon>
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{cat?.title}}
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p>{{cat?.description}}</p>
+            </mat-expansion-panel>
+        </mat-list-item>
+    </mat-list>
+
+    <div class="container text-center">
+        <button mat-raised-button color="primary" style="margin: 10px 8px;" routerLink="/admin-dashboard/add-category">Add Category</button>
+    </div>
+</mat-card>

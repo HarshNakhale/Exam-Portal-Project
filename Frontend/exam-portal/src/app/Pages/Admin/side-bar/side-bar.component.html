@@ -1,0 +1,50 @@
+<mat-card>
+    <mat-action-list>
+        <div mat-subheader style="font-size: large;color: whitesmoke; font-weight: bold;">Menu</div>
+        <button mat-list-item routerLink="/admin-dashboard">
+                <mat-icon matListItemIcon style="color: whitesmoke;">home</mat-icon>
+                <div matListItemTitle style="color: whitesmoke;">Home</div>
+        </button>
+        
+        <mat-divider></mat-divider>
+
+        <button routerLink="/admin-dashboard/profile" mat-list-item>
+            <mat-icon matListItemIcon style="color: whitesmoke;">account_circle</mat-icon>
+            <div matListItemTitle style="color: whitesmoke;">Profile</div>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button routerLink="/admin-dashboard/categories" mat-list-item>
+            <mat-icon matListItemIcon style="color: whitesmoke;">category</mat-icon>
+            <div matListItemTitle style="color: whitesmoke;">Categories</div>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button routerLink="/admin-dashboard/add-category" mat-list-item>
+            <mat-icon matListItemIcon style="color: whitesmoke;">playlist_add</mat-icon>
+            <div matListItemTitle style="color: whitesmoke;">Add Category</div>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button routerLink="/admin-dashboard/quizzes" mat-list-item>
+            <mat-icon matListItemIcon style="color: whitesmoke;">quiz</mat-icon>
+            <div matListItemTitle style="color: whitesmoke;">Quizzes</div>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button routerLink="/admin-dashboard/add-quiz" mat-list-item>
+            <mat-icon matListItemIcon style="color: whitesmoke;">add_box</mat-icon>
+            <div matListItemTitle style="color: whitesmoke;">Add Quiz</div>
+        </button>
+
+        <button mat-list-item>
+            <mat-icon matListItemIcon style="color: whitesmoke;">person_add_disabled</mat-icon>
+            <div matListItemTitle style="color: whitesmoke;" (click) = "logoutUser()">Logout</div>
+        </button>
+        
+      </mat-action-list>
+</mat-card>

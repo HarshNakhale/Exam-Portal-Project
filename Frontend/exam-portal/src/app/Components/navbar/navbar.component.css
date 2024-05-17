@@ -1,0 +1,12 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+.mat-toolbar{
+  height: 8%;
+  background-color: #f44336;
+}
+.mat-icon{
+  color: black;
+  font-weight: bold;
+  font-size: 28px;
+}

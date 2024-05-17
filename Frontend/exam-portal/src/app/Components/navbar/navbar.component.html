@@ -1,0 +1,16 @@
+<mat-toolbar>
+  <a routerLink="/" mat-icon-button aria-label="Example icon button with a home icon">
+    <mat-icon>home</mat-icon>
+  </a>
+    <span style="font-weight: bolder;font-size: x-large;">EXAM PORTAL</span>
+    <span class="example-spacer"></span>
+    <a *ngIf="!this.loginService.isLoggedIn()" [routerLink]="'/login'" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>login</mat-icon>
+    </a>
+    <a *ngIf="!this.loginService.isLoggedIn()" [routerLink]="'/register'" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>group_add</mat-icon>
+    </a>
+    <a (click) = "logoutUser()" *ngIf="this.loginService.isLoggedIn()" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>person_add_disabled</mat-icon>
+    </a>
+</mat-toolbar>

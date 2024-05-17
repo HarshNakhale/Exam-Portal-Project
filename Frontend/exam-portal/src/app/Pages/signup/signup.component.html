@@ -1,0 +1,155 @@
+<div class="compBody">
+    <h1 class="text-center" style="margin: 15px;">SIGNUP FORM</h1>
+
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="center wrapper" style="width: 50%;">
+                <mat-card>
+                    <mat-card-content>
+                        <div class="container text-center">
+                            <img src="../../../assets/exam.png" alt="" style="height: 80px; width: 80px;">
+                            <h1 class="text-center" style="font-weight: bolder;">EXAM PORTAL</h1>
+                        </div>
+                        <form [formGroup]="signUpForm" (submit)="onSubmitSignUpForm()">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <!-- UserName -->
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <mat-label>Username</mat-label>
+                                        <input matInput placeholder="Enter Username" formControlName="username">
+                                        <mat-hint
+                                            *ngIf="signUpForm.controls['username'].invalid && (signUpForm.controls['username'].touched || signUpForm.controls['username'].dirty || signUpFormSubmitted)"
+                                            class="red-text">
+                                            <span *ngIf="signUpForm.controls['username'].errors?.['required']">Username
+                                                is
+                                                Required</span>
+                                            <span *ngIf="signUpForm.controls['username'].errors?.['pattern']">Only a-z is allowed</span>
+                                        </mat-hint>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <!-- Email -->
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <mat-label>Email</mat-label>
+                                        <input type="email" matInput placeholder="Enter Email" formControlName="email">
+                                        <mat-hint
+                                            *ngIf="signUpForm.controls['email'].invalid && (signUpForm.controls['email'].touched || signUpForm.controls['email'].dirty || signUpFormSubmitted)"
+                                            class="red-text">
+                                            <span *ngIf="signUpForm.controls['email'].errors?.['required']">Email is
+                                                Required</span>
+                                            <span *ngIf="signUpForm.controls['email'].errors?.['email']">Email is not in
+                                                Valid
+                                                Format</span>
+                                        </mat-hint>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <!-- FirstName -->
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <mat-label>First Name</mat-label>
+                                        <input matInput placeholder="Enter First Name" formControlName="first_name">
+                                        <mat-hint
+                                            *ngIf="signUpForm.controls['first_name'].invalid && (signUpForm.controls['first_name'].touched || signUpForm.controls['first_name'].dirty || signUpFormSubmitted)"
+                                            class="red-text">
+                                            <span *ngIf="signUpForm.controls['first_name'].errors?.['required']">First
+                                                Name is
+                                                Required</span>
+                                        </mat-hint>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <!-- LastName -->
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <mat-label>LastName</mat-label>
+                                        <input matInput placeholder="Enter Last Name" formControlName="last_name">
+                                        <mat-hint
+                                            *ngIf="signUpForm.controls['last_name'].invalid && (signUpForm.controls['last_name'].touched || signUpForm.controls['last_name'].dirty || signUpFormSubmitted)"
+                                            class="red-text">
+                                            <span *ngIf="signUpForm.controls['last_name'].errors?.['required']">Last
+                                                Name is
+                                                Required</span>
+                                        </mat-hint>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <!-- Password -->
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <mat-label>Password</mat-label>
+                                        <input type='password' matInput placeholder="Enter Password"
+                                            formControlName="password">
+                                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                        </button>
+                                        <mat-hint
+                                            *ngIf="signUpForm.controls['password'].invalid && (signUpForm.controls['password'].touched || signUpForm.controls['password'].dirty || signUpFormSubmitted)"
+                                            class="red-text">
+                                            <span *ngIf="signUpForm.controls['password'].errors?.['required']">Password
+                                                is
+                                                Required</span>
+                                            <span *ngIf="signUpForm.controls['password'].errors?.['minlength']">Minimum
+                                                Length
+                                                Required 5</span>
+                                        </mat-hint>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <!-- Phone -->
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <mat-label>Phone</mat-label>
+                                        <input type="number" matInput placeholder="Enter Phone" formControlName="phone">
+                                        <mat-hint
+                                            *ngIf="signUpForm.controls['phone'].invalid && (signUpForm.controls['phone'].touched || signUpForm.controls['phone'].dirty || signUpFormSubmitted)"
+                                            class="red-text">
+                                            <span *ngIf="signUpForm.controls['phone'].errors?.['required']">Phone is
+                                                Required</span>
+                                            <span *ngIf="signUpForm.controls['phone'].errors?.['pattern']">Only Numbers
+                                                Allowed.
+                                                Max Length 10</span>
+                                        </mat-hint>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <!-- About -->
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>About</mat-label>
+                                <input matInput placeholder="Enter About" formControlName="about">
+                                <mat-hint
+                                    *ngIf="signUpForm.controls['about'].invalid && (signUpForm.controls['about'].touched || signUpForm.controls['about'].dirty || signUpFormSubmitted)"
+                                    class="red-text">
+                                    <span *ngIf="signUpForm.controls['about'].errors?.['required']">About Is
+                                        Required</span>
+                                </mat-hint>
+                            </mat-form-field>
+
+
+
+                            <div class="continer text-center">
+                                <button mat-raised-button color="warn" style="margin: 5px 8px;"
+                                    type="submit">Submit</button>
+                                <button mat-raised-button color="warn" style="margin: 5px 8px;"
+                                    (click)="resetForm()" type="button">Reset</button>
+                            </div>
+                        </form>
+                    </mat-card-content>
+
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+

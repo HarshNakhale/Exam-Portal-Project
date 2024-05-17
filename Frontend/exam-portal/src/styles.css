@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.text-center{
+    text-align: center;
+}
+.full-width{
+    width: 100%;
+}
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.error-text{
+    color: red;
+}
+
+.compBody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 94vh;
+    background: url('assets/welcome4.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper{
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 0 10px whitesmoke;
+    backdrop-filter: blur(30px);
+}
+

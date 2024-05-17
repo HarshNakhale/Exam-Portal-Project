@@ -1,0 +1,91 @@
+<mat-card>
+    <mat-list>
+        <div mat-subheader style="font-size: x-large;font-weight: 500;">UPDATE QUIZ</div>
+        <div class="bootstrap-wrapper">
+            <div class="container">
+                <form [formGroup]="updateFormGroup" (submit)="updateQuizForm()">
+                    <!-- title -->
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Title</mat-label>
+                        <input matInput placeholder="Enter Title" formControlName="title">
+                        <mat-hint
+                            *ngIf="updateFormGroup.controls['title'].invalid && (updateFormGroup.controls['title'].touched || updateFormGroup.controls['title'].dirty || updateFormSubmitted)">
+                            <span *ngIf="updateFormGroup.controls['title'].errors?.['required']"><span
+                                    class="error-text">Title Is Required</span></span>
+                        </mat-hint>
+                    </mat-form-field>
+
+                    <!-- description -->
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput formControlName="description" placeholder="Enter Description" rows="10">
+
+                        </textarea>
+                        <mat-hint
+                            *ngIf="updateFormGroup.controls['description'].invalid && (updateFormGroup.controls['description'].touched || updateFormGroup.controls['description'].dirty || updateFormSubmitted)">
+                            <span *ngIf="updateFormGroup.controls['description'].errors?.['required']"><span
+                                    class="error-text">Description is Required</span></span>
+                        </mat-hint>
+                    </mat-form-field>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- maxMarks -->
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Max Marks</mat-label>
+                                <input matInput placeholder="Enter Maximum Marks" formControlName="maxMarks">
+                                <mat-hint
+                                    *ngIf="updateFormGroup.controls['maxMarks'].invalid && (updateFormGroup.controls['maxMarks'].touched || updateFormGroup.controls['maxMarks'].dirty || updateFormSubmitted)">
+                                    <span *ngIf="updateFormGroup.controls['maxMarks'].errors?.['required']"><span
+                                            class="error-text">Maximum Marks Is Required</span></span>
+                                    <span *ngIf="updateFormGroup.controls['maxMarks'].errors?.['pattern']"><span
+                                            class="error-text">Enter Only Numbers 0-9</span></span>
+                                </mat-hint>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- noOfQuestions -->
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>No Of Questions</mat-label>
+                                <input matInput placeholder="Enter Number Of Questions" formControlName="noOfQuestions">
+                                <mat-hint
+                                    *ngIf="updateFormGroup.controls['noOfQuestions'].invalid && (updateFormGroup.controls['noOfQuestions'].touched || updateFormGroup.controls['noOfQuestions'].dirty || updateFormSubmitted)">
+                                    <span *ngIf="updateFormGroup.controls['noOfQuestions'].errors?.['required']"><span
+                                            class="error-text">No Of Questions Is Required</span></span>
+                                    <span *ngIf="updateFormGroup.controls['noOfQuestions'].errors?.['pattern']"><span
+                                            class="error-text">Enter Only Numbers 0-9</span></span>
+                                </mat-hint>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <mat-slide-toggle style="margin: 10px 5px;" formControlName="active">Quiz Active Status: {{updateFormGroup.controls["active"].value}}</mat-slide-toggle>
+                    <br>
+                    <div formGroupName="category">
+                        <mat-form-field style="margin: 10px 0px; width: 100%;" >
+                            <mat-label>Select Category</mat-label>
+                            <mat-select formControlName="cid">
+                                <mat-option>--</mat-option>
+                                <mat-option *ngFor="let cat of categories" [value]="cat.cid">{{cat.title}}</mat-option>
+                            </mat-select>
+                            <mat-hint
+                                *ngIf="updateFormGroup.controls['category'].invalid && (updateFormGroup.controls['category'].touched || updateFormGroup.controls['category'].dirty || updateFormSubmitted)">
+                                <span *ngIf="updateFormGroup.controls['category'].errors?.['required']"><span
+                                        class="error-text">Category Is Required</span></span>
+                            </mat-hint>
+                        </mat-form-field>
+                    </div>
+                    
+
+
+                    <div class="continer text-center">
+                        <button mat-raised-button color="primary" style="margin: 5px 8px;" type="submit">Update</button>
+                        <button mat-stroked-button color="primary" style="margin: 5px 8px;" (click)="resetForm()"
+                            type="button">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </mat-list>
+</mat-card>

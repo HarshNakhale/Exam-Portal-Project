@@ -1,0 +1,33 @@
+.red-text{
+    color: red;
+}
+
+mat-card{
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 0 10px whitesmoke;
+    backdrop-filter: blur(30px);
+}
+mat-label{
+    color: aliceblue !important;  
+    font-weight: 700;
+    font-size: 15px;
+}
+
+mat-hint{
+    font-weight: 500;
+    font-size: 13px;
+}
+
+mat-form-field{
+    border-color: aliceblue !important;
+}
+
+.mdc-text-field__input{
+    color: aliceblue !important;
+}
+
+.mat-focused .mat-form-field-label {
+    color: aliceblue !important;
+} 

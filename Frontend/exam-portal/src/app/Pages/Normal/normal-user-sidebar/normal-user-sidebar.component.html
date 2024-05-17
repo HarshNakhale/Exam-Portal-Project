@@ -1,0 +1,37 @@
+
+
+<mat-card>
+    <mat-action-list>
+        <div mat-subheader style="font-size: large;color: whitesmoke; font-weight: bold;">Menu</div>
+        <button mat-list-item routerLink="/user-dashboard">
+                <mat-icon matListItemIcon style="color: whitesmoke;">home</mat-icon>
+                <div matListItemTitle style="color: whitesmoke;">Home</div>
+        </button>
+        
+        <mat-divider></mat-divider>
+
+        <button mat-list-item routerLink="/user-dashboard/0">
+            <mat-icon matListItemIcon style="color: whitesmoke;">quiz</mat-icon>
+            <div matListItemTitle style="color: whitesmoke;">All Quizzes</div>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <div *ngFor="let cat of categories">
+            <button mat-list-item [routerLink]="'/user-dashboard/' + cat.cid">
+                <mat-icon matListItemIcon style="color: whitesmoke;">quiz</mat-icon>
+                <div matListItemTitle style="color: whitesmoke;">{{cat.title}}</div>
+            </button>
+    
+            <mat-divider></mat-divider>
+        </div>
+
+        
+
+        <button mat-list-item>
+            <mat-icon matListItemIcon style="color: whitesmoke;">person_add_disabled</mat-icon>
+            <div matListItemTitle style="color: whitesmoke;" (click) = "logoutUser()">Logout</div>
+        </button>
+        
+      </mat-action-list>
+</mat-card>

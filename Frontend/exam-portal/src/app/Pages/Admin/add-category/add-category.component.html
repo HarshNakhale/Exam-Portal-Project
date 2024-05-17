@@ -1,0 +1,37 @@
+<mat-card>
+    <mat-list>
+        <div mat-subheader style="font-size: x-large;font-weight: 500;">ADD CATEGORY</div>
+        <div class="bootstrap-wrapper">
+            <div class="container">
+                <form [formGroup]="addCategoryFormGroup" (submit)="onSubmitCategoryForm()">
+                    <!-- title -->
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Title</mat-label>
+                        <input matInput placeholder="Enter Title" formControlName="title">
+                        <mat-hint *ngIf="addCategoryFormGroup.controls['title'].invalid && (addCategoryFormGroup.controls['title'].touched || addCategoryFormGroup.controls['title'].dirty || categoryFormSubmitted)">
+                            <span *ngIf="addCategoryFormGroup.controls['title'].errors?.['required']"><span class="error-text">Title Is Required</span></span>
+                        </mat-hint>
+                    </mat-form-field>
+                
+                    <!-- description -->
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput formControlName="description" placeholder="Enter Description" rows="10">
+
+                        </textarea>
+                        <mat-hint *ngIf="addCategoryFormGroup.controls['description'].invalid && (addCategoryFormGroup.controls['description'].touched || addCategoryFormGroup.controls['description'].dirty || categoryFormSubmitted)">
+                            <span *ngIf="addCategoryFormGroup.controls['description'].errors?.['required']"><span class="error-text">Description is Required</span></span>
+                        </mat-hint>
+                    </mat-form-field>
+                
+                    <div class="continer text-center">
+                        <button mat-raised-button color="primary" style="margin: 5px 8px;" type="submit">Add</button>
+                        <button mat-stroked-button color="primary" style="margin: 5px 8px;" (click)="resetForm()" type="button">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </mat-list>
+</mat-card>
+

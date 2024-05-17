@@ -1,0 +1,51 @@
+<div class="compBody">
+    <h1 class="text-center" style="margin: 15px;">LOGIN FORM</h1>
+
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="center wrapper">
+                <mat-card>
+                    <mat-card-content>
+                        <div class="container text-center">
+                            <img src="../../../assets/exam.png" alt="" style="height: 80px; width: 80px;">
+                            <h1 style="font-weight: bolder;">EXAM PORTAL</h1>
+                        </div>
+        
+                        <form [formGroup]="loginForm" (submit)="onSubmitLoginForm()">
+                            <!-- UserName -->
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Username</mat-label>
+                                <input matInput placeholder="Enter Username" formControlName="username">
+                                <mat-hint *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].touched || loginForm.controls['username'].dirty || loginFormSubmitted)" class="red-text">
+                                    <span *ngIf="loginForm.controls['username'].errors?.['required']"><span class="error-text">Username Is Required</span></span>
+                                    <span *ngIf="loginForm.controls['username'].errors?.['pattern']"><span class="error-text">Only a-z is allowed</span></span>
+                                </mat-hint>
+                            </mat-form-field>
+        
+                            <!-- Password -->
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Password</mat-label>
+                                <input  type='password' matInput placeholder="Enter Password" formControlName="password" style="color: aliceblue;">
+                                <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button> -->
+                                <mat-hint *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].touched || loginForm.controls['password'].dirty || loginFormSubmitted)" class="red-text">
+                                    <span *ngIf="loginForm.controls['password'].errors?.['required']"><span class="error-text">Password is Required</span></span>
+                                    <span *ngIf="loginForm.controls['password'].errors?.['minlength']"><span class="error-text">Minimum Length Required 5</span></span>
+                                </mat-hint>
+                            </mat-form-field>
+        
+                            <div class="continer text-center">
+                                <button mat-raised-button color="warn" style="margin: 5px 8px;" type="submit">Submit</button>
+                                <button mat-raised-button color="warn" style="margin: 5px 8px;" (click)="resetForm()" type="button">Reset</button>
+                            </div>
+                        </form>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+

@@ -1,0 +1,106 @@
+<mat-card>
+    <mat-list>
+        <div mat-subheader style="font-size: x-large;font-weight: 500;">ADDING QUESTION TO {{quizTitle}}</div>
+        <div class="bootstrap-wrapper">
+            <div class="container" style="margin-top: 20px;">
+                <form [formGroup]="addQuestionFormGroup" (submit)="onSubmitQuestionForm()">
+                    <!-- Content -->
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Content</mat-label>
+                        <textarea matInput formControlName="content" placeholder="Enter The Detail Of New Question" rows="10">
+
+                        </textarea>
+                        <mat-hint
+                            *ngIf="addQuestionFormGroup.controls['content'].invalid && (addQuestionFormGroup.controls['content'].touched || addQuestionFormGroup.controls['content'].dirty || questionFormSubmitted)">
+                            <span *ngIf="addQuestionFormGroup.controls['content'].errors?.['content']"><span
+                                    class="error-text">Content is Required</span></span>
+                        </mat-hint>
+                    </mat-form-field>
+
+                    <!-- <ckeditor [editor]="Editor" data="<p>Write your question here!</p>" formControlName="content"></ckeditor> -->
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- Option1 -->
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Option 1</mat-label>
+                                <input matInput placeholder="Enter Option1" formControlName="option1">
+                                <mat-hint
+                                    *ngIf="addQuestionFormGroup.controls['option1'].invalid && (addQuestionFormGroup.controls['option1'].touched || addQuestionFormGroup.controls['option1'].dirty || questionFormSubmitted)">
+                                    <span *ngIf="addQuestionFormGroup.controls['option1'].errors?.['required']"><span
+                                            class="error-text">Option 1 Is Required</span></span>
+                                </mat-hint>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- Option2 -->
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Option 2</mat-label>
+                                <input matInput placeholder="Enter Option2" formControlName="option2">
+                                <mat-hint
+                                    *ngIf="addQuestionFormGroup.controls['option2'].invalid && (addQuestionFormGroup.controls['option2'].touched || addQuestionFormGroup.controls['option2'].dirty || questionFormSubmitted)">
+                                    <span *ngIf="addQuestionFormGroup.controls['option2'].errors?.['required']"><span
+                                            class="error-text">Option 2 Is Required</span></span>
+                                </mat-hint>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- Option3 -->
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Option 3</mat-label>
+                                <input matInput placeholder="Enter Option3" formControlName="option3">
+                                <mat-hint
+                                    *ngIf="addQuestionFormGroup.controls['option3'].invalid && (addQuestionFormGroup.controls['option3'].touched || addQuestionFormGroup.controls['option3'].dirty || questionFormSubmitted)">
+                                    <span *ngIf="addQuestionFormGroup.controls['option3'].errors?.['required']"><span
+                                            class="error-text">Option 3 Is Required</span></span>
+                                </mat-hint>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- Option4 -->
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Option 4</mat-label>
+                                <input matInput placeholder="Enter Option4" formControlName="option4">
+                                <mat-hint
+                                    *ngIf="addQuestionFormGroup.controls['option4'].invalid && (addQuestionFormGroup.controls['option4'].touched || addQuestionFormGroup.controls['option4'].dirty || questionFormSubmitted)">
+                                    <span *ngIf="addQuestionFormGroup.controls['option4'].errors?.['required']"><span
+                                            class="error-text">Option 4 Is Required</span></span>
+                                </mat-hint>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div>
+                        <mat-form-field style="margin: 10px 0px; width: 100%;" >
+                            <mat-label>Select Answer</mat-label>
+                            <mat-select formControlName="answer">
+                                <mat-option>--</mat-option>
+                                <mat-option [value]="addQuestionFormGroup.controls['option1'].value" *ngIf="addQuestionFormGroup.controls['option1'].value != ''">Option 1</mat-option>
+                                <mat-option [value]="addQuestionFormGroup.controls['option2'].value" *ngIf="addQuestionFormGroup.controls['option2'].value != ''">Option 2</mat-option>
+                                <mat-option [value]="addQuestionFormGroup.controls['option3'].value" *ngIf="addQuestionFormGroup.controls['option3'].value != ''">Option 3</mat-option>
+                                <mat-option [value]="addQuestionFormGroup.controls['option4'].value" *ngIf="addQuestionFormGroup.controls['option4'].value != ''">Option 4</mat-option>
+                            </mat-select>
+                            <!-- <mat-hint
+                                *ngIf="addQuestionFormGroup.controls['answer'].invalid && (addQuestionFormGroup.controls['answer'].touched || addQuestionFormGroup.controls['answer'].dirty || questionFormSubmitted)">
+                                <span *ngIf="addQuestionFormGroup.controls['answer'].errors?.['required']"><span
+                                        class="error-text">answer Is Required</span></span>
+                            </mat-hint> -->
+                        </mat-form-field>
+                    </div>
+
+
+                    <div class="continer text-center">
+                        <button mat-raised-button color="primary" style="margin: 5px 8px;" type="submit">Add</button>
+                        <button mat-stroked-button color="primary" style="margin: 5px 8px;" (click)="resetForm()"
+                            type="button">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </mat-list>
+</mat-card>
